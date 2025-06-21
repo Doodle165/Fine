@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fine - Login</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #dbeeee, #b5d1cf);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .login-container {
+        background-color: #ffffffee;
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 400px;
+      }
+
+      .login-container h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #2f4f4f;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin: 0.5rem 0 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #2f4f4f;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background-color: #3d6a6a;
+      }
+
+      .link {
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      .link a {
+        color: #2f4f4f;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .error {
+        color: red;
+        text-align: center;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .home-icon {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #6ba3c3;
+        color: white;
+        padding: 10px;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 24px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+      }
+
+      .home-icon:hover {
+        background-color: #5a94b3;
+      }
+      img{width: 20px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="home-icon" title="Go to homepage"><img src="home.png" alt="home-icon"></a>
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Welcome Back!</h2>
+
+      <div class="error" id="error">Please enter valid credentials.</div>
+
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+
+      <button onclick="login()">Login</button>
+
+      <div class="link">
+        Don't have an account? <a href="register.html">Sign Up</a>
+      </div>
+    </div>
+
+    <script>
+      function login() {
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const error = document.getElementById("error");
+
+        if (email === "" || password === "") {
+          error.style.display = "block";
+          error.innerText = "Please fill in both fields.";
+          return;
+        }
+
+        // Temporary fake login logic
+        if (email === "test@fine.tn" && password === "123456") {
+          alert("Login successful! Redirecting to dashboard...");
+          window.location.href = "dashboard.html"; // change as needed
+        } else {
+          error.style.display = "block";
+          error.innerText = "Invalid email or password.";
+        }
+      }
+    </script>
+  </body>
+</html>

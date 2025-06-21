@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fine - Sign Up</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #dbeeee, #b5d1cf);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .register-container {
+        background-color: #ffffffee;
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 400px;
+      }
+
+      .register-container h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #2f4f4f;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin: 0.5rem 0 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #2f4f4f;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background-color: #3d6a6a;
+      }
+
+      .link {
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      .link a {
+        color: #2f4f4f;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .error {
+        color: red;
+        text-align: center;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .home-icon {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #6ba3c3;
+        color: white;
+        padding: 10px;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 24px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+      }
+
+      .home-icon:hover {
+        background-color: #5a94b3;
+      }
+      img{width: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="home-icon" title="Go to homepage"><img src="home.png" alt="home-icon"></a>
+    </style>
+  </head>
+  <body>
+    <div class="register-container">
+      <h2>Create Your Account</h2>
+
+      <div class="error" id="error">Fill all fields correctly.</div>
+
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+
+      <button onclick="register()">Sign Up</button>
+
+      <div class="link">
+        Already have an account? <a href="login.html">Log In</a>
+      </div>
+    </div>
+
+    <script>
+      function register() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const error = document.getElementById("error");
+
+        if (!name || !email || !password) {
+          error.style.display = "block";
+          error.innerText = "Please fill in all fields.";
+          return;
+        }
+
+        // TEMP: Save to localStorage (for demo only)
+        localStorage.setItem("fine_user_email", email);
+        localStorage.setItem("fine_user_password", password);
+
+        alert("Account created! Redirecting to login...");
+        window.location.href = "login.html";
+      }
+    </script>
+  </body>
+</html>
